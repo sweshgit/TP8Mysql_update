@@ -1,0 +1,34 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:Data_Update_Process="http://thisdiagram/Data_Update_Process" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:mysql_update:updateoperationservice" xmlns:diag="http://thisdiagram" xmlns:this="http://thisdiagram/UpdateService" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/UpdateService">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_Update_Process" bpdm:prefix="Data_Update_Process" bpdm:comment="contrib=&apos;partner-pool:///_DOik0GziEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="urn:intalio.com:connectors:database:mysql_update:updateoperationservice" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_DOik0GziEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/UpdateService" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_DOik0GziEeWcrclbpNF4yg" bpdm:label="Data Update Process"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="UpdateService" bpdm:ID="_sGU2oGziEeWcrclbpNF4yg">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="updateServiceAndData_Update_ProcessForUpdateOperationPortPlkVar" partnerLinkType="diag:UpdateServiceAndData_Update_ProcessForUpdateOperationPortPlk" myRole="UpdateService_for_Data_Update_Process" bpdm:enableSharing="false" bpdm:providedService="ns:UpdateOperationService" bpdm:providedPort="UpdateOperationPort" bpdm:provideSOAPAddress="http://localhost:8080/intalio/ode/processes/MySql_Update/Connectors/Database/UpdateOperation" bpdm:providedIsDefault="true" bpdm:clientTasks="_sGU2oGziEeWcrclbpNF4yg:_d_0AMGzoEeWcrclbpNF4yg" bpdm:isManaged="true" bpdm:otherPoolId="_DOik0GziEeWcrclbpNF4yg"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="nsUpdateOperationRequestMsg" messageType="ns:UpdateOperationInput" binding="ns:UpdateOperationPortSoapBinding" operation="UpdateOperation" opMsgType="0" bpdm:id="_eqps8GzoEeWcrclbpNF4yg" bpdm:messageIds="inc:_ep5fAGzoEeWcrclbpNF4yg"/>
+            <bpel:variable name="nsUpdateOperationResponseMsg" messageType="ns:UpdateOperationOutput" binding="ns:UpdateOperationPortSoapBinding" operation="UpdateOperation" opMsgType="1" bpdm:id="_fBZZAGzoEeWcrclbpNF4yg" bpdm:messageIds=" out:_fAzjIGzoEeWcrclbpNF4yg">
+                <bpel:from bpdm:toPart="parameters">
+                    <bpel:literal bpdm:linkedMessageType="ns:UpdateOperationOutput" bpdm:linkedPart="parameters" bpdm:binding="ns:UpdateOperationPortSoapBinding" bpdm:opMsgType="1" bpdm:operation="UpdateOperation"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="UpdateOperation" partnerLink="updateServiceAndData_Update_ProcessForUpdateOperationPortPlkVar" portType="ns:UpdateOperationPort" isMyRole="true" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Provide-Service-Updateoperation" bpdm:ID="_d_0AMGzoEeWcrclbpNF4yg">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="nsUpdateOperationRequestMsg" bpdm:msgVarScopeId="_sGU2oGziEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="ns:UpdateOperationInput" bpdm:binding="ns:UpdateOperationPortSoapBinding" bpdm:ID="_ep5fAGzoEeWcrclbpNF4yg"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="nsUpdateOperationResponseMsg" bpdm:msgVarScopeId="_sGU2oGziEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="ns:UpdateOperationOutput" bpdm:binding="ns:UpdateOperationPortSoapBinding" bpdm:ID="_fAzjIGzoEeWcrclbpNF4yg"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

@@ -1,0 +1,33 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:Data_Update_Process="http://thisdiagram/Data_Update_Process" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.example.org/message" xmlns:this="http://thisdiagram/Send" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Send">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_Update_Process" bpdm:prefix="Data_Update_Process" bpdm:comment="contrib=&apos;partner-pool:///_DOik0GziEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.example.org/message" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///Services/SOAP/message.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Send" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_DOik0GziEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_DOik0GziEeWcrclbpNF4yg" bpdm:label="Data Update Process"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Services/SOAP/message.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Send" bpdm:ID="__s0KgGzhEeWcrclbpNF4yg">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="sendAndData_Update_ProcessPlkVar" partnerLinkType="diag:SendAndData_Update_Process" initializePartnerRole="yes" partnerRole="Data_Update_Process_for_Send" bpdm:invokedService="Data_Update_Process:CanonicServiceForSend" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Data_Update_Process/Send" bpdm:invokedIsDefault="true" bpdm:clientTasks="__s0KgGzhEeWcrclbpNF4yg:__s97gGzhEeWcrclbpNF4yg" bpdm:isManaged="true" bpdm:otherPoolId="_DOik0GziEeWcrclbpNF4yg"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="data_Update_ProcessStart_EventRequestMsg" messageType="Data_Update_Process:Start_EventRequest" bpdm:id="_Kgsj0GziEeWcrclbpNF4yg" bpdm:messageIds=" out:_Kfx90GziEeWcrclbpNF4yg">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="Data_Update_Process:Start_EventRequest" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="data_Update_ProcessStart_EventResponseMsg" messageType="Data_Update_Process:Start_EventResponse" bpdm:id="_qnVJEGziEeWcrclbpNF4yg" bpdm:messageIds="inc:_qm5EMGziEeWcrclbpNF4yg"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Start_Event" partnerLink="sendAndData_Update_ProcessPlkVar" portType="Data_Update_Process:ForSend" isMyRole="false" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Send" bpdm:ID="__s97gGzhEeWcrclbpNF4yg">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="data_Update_ProcessStart_EventRequestMsg" bpdm:msgVarScopeId="__s0KgGzhEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="Data_Update_Process:Start_EventRequest" bpdm:ID="_Kfx90GziEeWcrclbpNF4yg"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="data_Update_ProcessStart_EventResponseMsg" bpdm:msgVarScopeId="__s0KgGzhEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="Data_Update_Process:Start_EventResponse" bpdm:ID="_qm5EMGziEeWcrclbpNF4yg"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

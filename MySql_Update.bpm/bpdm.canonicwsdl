@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:diag="http://thisdiagram" xmlns:Data_Update_Process="http://thisdiagram/Data_Update_Process" xmlns:Send="http://thisdiagram/Send" xmlns:UpdateService="http://thisdiagram/UpdateService" xmlns:tns="http://www.example.org/message" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:mysql_update:updateoperationservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://thisdiagram" bpdm:version="6000089" bpdm:canid="__r5kgWzhEeWcrclbpNF4yg" bpdm:displayName="diag">
+  <pnlk:partnerLinkType name="SendAndData_Update_Process" bpdm:poolOneId="_DOik0GziEeWcrclbpNF4yg" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="Data Update Process" bpdm:poolTwoId="__s0KgGzhEeWcrclbpNF4yg" bpdm:poolTwoIsExecutable="false" bpdm:poolTwoName="Send">
+    <pnlk:role name="Data_Update_Process_for_Send" portType="Data_Update_Process:ForSend" bpdm:thisPoolId="_DOik0GziEeWcrclbpNF4yg">
+      <wsdl:portType name="ForSend">
+        <wsdl:operation name="Start_Event" bpdm:canid="_KflJgGziEeWcrclbpNF4yg.__s97gGzhEeWcrclbpNF4yg._o7kK0GziEeWcrclbpNF4yg.">
+          <wsdl:input message="Data_Update_Process:Start_EventRequest" name="Start_Event" bpdm:canid="_Kfx90GziEeWcrclbpNF4yg" bpdm:senderId="__s97gGzhEeWcrclbpNF4yg" bpdm:receiverId="_KflJgGziEeWcrclbpNF4yg" bpdm:senderName="Send" bpdm:receiverName="Start Event" bpdm:receiverPoolId="_DOik0GziEeWcrclbpNF4yg" bpdm:dataobjectPointer="project:///Services/SOAP/message.xsd?xsdtype={http://www.example.org/message}msg" bpdm:bodyPartElemName="Start_EventRequest" bpdm:bodyPartElemType="{http://www.example.org/message}msg"></wsdl:input>
+          <wsdl:output message="Data_Update_Process:Start_EventResponse" name="Start_EventResponse" bpdm:canid="_qm5EMGziEeWcrclbpNF4yg" bpdm:senderId="_o7kK0GziEeWcrclbpNF4yg" bpdm:receiverId="__s97gGzhEeWcrclbpNF4yg" bpdm:senderName="End Event" bpdm:receiverName="Send" bpdm:receiverPoolId="__s0KgGzhEeWcrclbpNF4yg" bpdm:bodyPartElemName="Start_EventResponse" bpdm:bodyPartElemType="xs:string"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="UpdateServiceAndData_Update_Process" bpdm:poolOneId="_sGU2oGziEeWcrclbpNF4yg" bpdm:poolOneIsExecutable="false" bpdm:poolOneName="UpdateService" bpdm:poolTwoId="_DOik0GziEeWcrclbpNF4yg" bpdm:poolTwoIsExecutable="true" bpdm:poolTwoName="Data Update Process">
+    <pnlk:role name="UpdateService_for_Data_Update_Process" portType="UpdateService:ForData_Update_Process" bpdm:thisPoolId="_sGU2oGziEeWcrclbpNF4yg">
+      <wsdl:portType name="ForData_Update_Process">
+        <wsdl:operation name="Provide-Service-Updateoperation" bpdm:canid="_MaNqMGziEeWcrclbpNF4yg._d_0AMGzoEeWcrclbpNF4yg." bpdm:dataobjectPointer="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl?wsdloperationbound={urn:intalio.com:connectors:database:mysql_update:updateoperationservice}UpdateOperationService/UpdateOperationPort/UpdateOperation">
+          <wsdl:input message="ns:UpdateOperationRequest" name="Provide-Service-Updateoperation" bpdm:canid="_ep5fAGzoEeWcrclbpNF4yg" bpdm:senderId="_MaNqMGziEeWcrclbpNF4yg" bpdm:receiverId="_d_0AMGzoEeWcrclbpNF4yg" bpdm:senderName="Update Process" bpdm:receiverName="Provide-Service-Updateoperation" bpdm:receiverPoolId="_sGU2oGziEeWcrclbpNF4yg" bpdm:dataobjectPointer="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl?messageForBoundOperation={urn:intalio.com:connectors:database:mysql_update:updateoperationservice}UpdateOperationService/UpdateOperationPort/UpdateOperation/input/UpdateOperationRequest"></wsdl:input>
+          <wsdl:output message="ns:UpdateOperationResponse" name="Provide-Service-UpdateoperationResponse" bpdm:canid="_fAzjIGzoEeWcrclbpNF4yg" bpdm:senderId="_d_0AMGzoEeWcrclbpNF4yg" bpdm:receiverId="_MaNqMGziEeWcrclbpNF4yg" bpdm:senderName="Provide-Service-Updateoperation" bpdm:receiverName="Update Process" bpdm:receiverPoolId="_DOik0GziEeWcrclbpNF4yg" bpdm:dataobjectPointer="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl?messageForBoundOperation={urn:intalio.com:connectors:database:mysql_update:updateoperationservice}UpdateOperationService/UpdateOperationPort/UpdateOperation/output/UpdateOperationResponse"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="UpdateServiceAndData_Update_ProcessForUpdateOperationPortPlk" bpdm:canPlkId="_sGU2oGziEeWcrclbpNF4yg-_DOik0GziEeWcrclbpNF4yg">
+    <pnlk:role name="UpdateService_for_Data_Update_Process" portType="ns:UpdateOperationPort"></pnlk:role>
+  </pnlk:partnerLinkType>
+</wsdl:definitions>

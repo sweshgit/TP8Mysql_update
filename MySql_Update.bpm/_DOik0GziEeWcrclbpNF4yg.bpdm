@@ -1,0 +1,106 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:this="http://thisdiagram/Data_Update_Process" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.example.org/message" xmlns:ns="urn:intalio.com:connectors:database:mysql_update:updateoperationservice" xmlns:Send="http://thisdiagram/Send" xmlns:diag="http://thisdiagram" xmlns:UpdateService="http://thisdiagram/UpdateService" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Data_Update_Process">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_Update_Process" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.example.org/message" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///Services/SOAP/message.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="urn:intalio.com:connectors:database:mysql_update:updateoperationservice" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Send" bpdm:prefix="Send" bpdm:comment="contrib=&apos;partner-pool:///__s0KgGzhEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///__s0KgGzhEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/UpdateService" bpdm:prefix="UpdateService" bpdm:comment="contrib=&apos;partner-pool:///_sGU2oGziEeWcrclbpNF4yg"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="ForSend">
+                <wsdl:operation name="Start_Event" bpdm:source="partner-pool:///__s0KgGzhEeWcrclbpNF4yg">
+                    <wsdl:input message="this:Start_EventRequest" name="Start_Event"/>
+                    <wsdl:output message="this:Start_EventResponse" name="Start_EventResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <bpel:binding name="CanonicBindingForSend" type="this:ForSend" bpdm:isSynchronized="true"/>
+            <xs:element name="Start_EventRequest" type="tns:msg" bpdm:source="partner-pool:///__s0KgGzhEeWcrclbpNF4yg"/>
+            <wsdl:message name="Start_EventRequest" bpdm:source="partner-pool:///__s0KgGzhEeWcrclbpNF4yg">
+                <wsdl:part name="body" element="this:Start_EventRequest"/>
+            </wsdl:message>
+            <xs:element name="Start_EventResponse" type="xs:string" bpdm:source="partner-pool:///__s0KgGzhEeWcrclbpNF4yg"/>
+            <wsdl:message name="Start_EventResponse" bpdm:source="partner-pool:///__s0KgGzhEeWcrclbpNF4yg">
+                <wsdl:part name="body" element="this:Start_EventResponse"/>
+            </wsdl:message>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///__s0KgGzhEeWcrclbpNF4yg" bpdm:label="Send"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_sGU2oGziEeWcrclbpNF4yg" bpdm:label="UpdateService"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Services/SOAP/message.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.sql.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/UpdateOperation.sql/UpdateOperation.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Data Update Process" bpdm:ID="_DOik0GziEeWcrclbpNF4yg">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="sendAndData_Update_ProcessPlkVar" partnerLinkType="diag:SendAndData_Update_Process" myRole="Data_Update_Process_for_Send" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForSend" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Data_Update_Process/Send" bpdm:providedIsDefault="true" bpdm:clientTasks="_DOik0GziEeWcrclbpNF4yg:_KflJgGziEeWcrclbpNF4yg, _DOik0GziEeWcrclbpNF4yg:_o7kK0GziEeWcrclbpNF4yg" bpdm:isManaged="true" bpdm:otherPoolId="__s0KgGzhEeWcrclbpNF4yg"/>
+            <bpel:partnerLink name="updateServiceAndData_Update_ProcessForUpdateOperationPortPlkVar" partnerLinkType="diag:UpdateServiceAndData_Update_ProcessForUpdateOperationPortPlk" initializePartnerRole="yes" partnerRole="UpdateService_for_Data_Update_Process" bpdm:invokedService="ns:UpdateOperationService" bpdm:invokedPort="UpdateOperationPort" bpdm:invokedSOAPAddress="http://localhost:8080/intalio/ode/processes/MySql_Update/Connectors/Database/UpdateOperation" bpdm:invokedIsDefault="true" bpdm:clientTasks="_DOik0GziEeWcrclbpNF4yg:_MaNqMGziEeWcrclbpNF4yg" bpdm:isManaged="true" bpdm:otherPoolId="_sGU2oGziEeWcrclbpNF4yg"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisStart_EventRequestMsg" messageType="this:Start_EventRequest" bpdm:id="_KhGMcGziEeWcrclbpNF4yg" bpdm:messageIds="inc:_Kfx90GziEeWcrclbpNF4yg"/>
+            <bpel:variable name="thisStart_EventResponseMsg" messageType="this:Start_EventResponse" bpdm:id="_qnFRcGziEeWcrclbpNF4yg" bpdm:messageIds=" out:_qm5EMGziEeWcrclbpNF4yg">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Start_EventResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="nsUpdateOperationRequestMsg" messageType="ns:UpdateOperationInput" binding="ns:UpdateOperationPortSoapBinding" operation="UpdateOperation" opMsgType="0" bpdm:id="_eqacYGzoEeWcrclbpNF4yg" bpdm:messageIds=" out:_ep5fAGzoEeWcrclbpNF4yg">
+                <bpel:from bpdm:toPart="parameters">
+                    <bpel:literal bpdm:linkedMessageType="ns:UpdateOperationInput" bpdm:linkedPart="parameters" bpdm:binding="ns:UpdateOperationPortSoapBinding" bpdm:opMsgType="0" bpdm:operation="UpdateOperation"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="nsUpdateOperationResponseMsg" messageType="ns:UpdateOperationOutput" binding="ns:UpdateOperationPortSoapBinding" operation="UpdateOperation" opMsgType="1" bpdm:id="_fBoCgGzoEeWcrclbpNF4yg" bpdm:messageIds="inc:_fAzjIGzoEeWcrclbpNF4yg"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask eventType="start: message" operation="Start_Event" partnerLink="sendAndData_Update_ProcessPlkVar" portType="this:ForSend" isMyRole="true" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Start Event" bpdm:ID="_KflJgGziEeWcrclbpNF4yg">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisStart_EventRequestMsg" bpdm:msgVarScopeId="_DOik0GziEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="this:Start_EventRequest" bpdm:ID="_Kfx90GziEeWcrclbpNF4yg"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="UpdateOperation" partnerLink="updateServiceAndData_Update_ProcessForUpdateOperationPortPlkVar" portType="ns:UpdateOperationPort" isMyRole="false" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Update Process" bpdm:ID="_MaNqMGziEeWcrclbpNF4yg">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$thisStart_EventRequestMsg.body/tns:name</bpel:from>
+                        <bpel:to>$nsUpdateOperationRequestMsg.parameters/ns:execute/ns:parameters/ns:name</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="8914572" targetPath="$nsUpdateOperationRequestMsg.parameters/ns:execute/ns:parameters/ns:name" targetedBy="1784482280-arg0"></mapper:vertice>
+  <mapper:vertice id="1784482280" sourcePath="$thisStart_EventRequestMsg.body/tns:name"></mapper:vertice>
+</mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$thisStart_EventRequestMsg.body/tns:email</bpel:from>
+                        <bpel:to>$nsUpdateOperationRequestMsg.parameters/ns:execute/ns:parameters/ns:email</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="754317824" targetPath="$nsUpdateOperationRequestMsg.parameters/ns:execute/ns:parameters/ns:email" targetedBy="1385756352-arg0"></mapper:vertice>
+  <mapper:vertice id="1385756352" sourcePath="$thisStart_EventRequestMsg.body/tns:email"></mapper:vertice>
+</mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$thisStart_EventRequestMsg.body/tns:location</bpel:from>
+                        <bpel:to>$nsUpdateOperationRequestMsg.parameters/ns:execute/ns:parameters/ns:location</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="922790313" targetPath="$nsUpdateOperationRequestMsg.parameters/ns:execute/ns:parameters/ns:location" targetedBy="306604966-arg0"></mapper:vertice>
+  <mapper:vertice id="306604966" sourcePath="$thisStart_EventRequestMsg.body/tns:location"></mapper:vertice>
+</mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="nsUpdateOperationRequestMsg" bpdm:msgVarScopeId="_DOik0GziEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="ns:UpdateOperationInput" bpdm:binding="ns:UpdateOperationPortSoapBinding" bpdm:ID="_ep5fAGzoEeWcrclbpNF4yg"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="nsUpdateOperationResponseMsg" bpdm:msgVarScopeId="_DOik0GziEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="ns:UpdateOperationOutput" bpdm:binding="ns:UpdateOperationPortSoapBinding" bpdm:ID="_fAzjIGzoEeWcrclbpNF4yg"></bpdm:linkset>
+                <bpdm:thrownFault msgFaultNcName="nsUpdateOperationFault" msgFaultTypeQname="ns:UpdateOperationFault"/>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask eventType="end: message" operation="Start_Event" partnerLink="sendAndData_Update_ProcessPlkVar" portType="this:ForSend" isMyRole="true" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="End Event" bpdm:ID="_o7kK0GziEeWcrclbpNF4yg">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>"Done"</bpel:from>
+                        <bpel:to>$thisStart_EventResponseMsg.body/text()</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="1171686540" targetPath="$thisStart_EventResponseMsg.body/text()" targetedBy="3223439-arg0"></mapper:vertice>
+  <mapper:vertice id="3223439" dimension="79x24" location="186,103">
+    <mapper:value>"Done"</mapper:value>
+  </mapper:vertice>
+</mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisStart_EventResponseMsg" bpdm:msgVarScopeId="_DOik0GziEeWcrclbpNF4yg" bpdm:variableIsManaged="true" bpdm:messageType="this:Start_EventResponse" bpdm:ID="_qm5EMGziEeWcrclbpNF4yg"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

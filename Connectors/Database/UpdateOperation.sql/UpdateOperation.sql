@@ -1,0 +1,1 @@
+update election set email=?, location=? where name=?
